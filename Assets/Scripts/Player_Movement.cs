@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -8,79 +5,75 @@ public class Player_Movement : MonoBehaviour
     #region Variables
     //float
     [SerializeField] private float move_Speed;
-    [SerializeField] private float gravity_Modifier;
+    [SerializeField] private float jump_Force;
     //bool
-    public bool is_Grounded;
-    [SerializeField] private bool gravity_Switch;
-    public bool jump;
-    
-    [SerializeField] private bool gravity_Run;
+    private bool is_Grounded;
+    private bool gravity_Switch;
+    private bool jump;
+    private bool gravity_Run;
     //gravity modifier
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     #endregion
+
     private void Start()
     {
-        
         is_Grounded = false;
         gravity_Switch = true;
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        #region Is_Grounded
         if (collision.gameObject.CompareTag("Ground"))
         {
             is_Grounded = true;
             gravity_Switch = false;
             gravity_Run = true;
         }
-        #endregion //when is this true
     }
+
     void Update()
     {
         Upward_Movement();
+
+        // Check for touches each frame
+        DetectTouches();
     }
 
     private void Upward_Movement()
     {
-        if(is_Grounded == true)
-            {
-            
-            transform.Translate(Vector3.up* move_Speed); // uwpwards movement
-            if (is_Grounded == true && gravity_Run == true)
-            {
-                gravity_Run = true;
-                if (Input.touchCount > 0)
-                    {
-                    Jump();
-                    gravity_Switch = true;
-                    is_Grounded = false;
-                    jump = true;
-                    gravity_Run = true;
+        if (is_Grounded)
+        {
+            // Apply upward force instead of translating
+            rb.velocity = new Vector2(rb.velocity.x, move_Speed);
 
-                }
-                if (!gravity_Switch)
-                {
-                    is_Grounded = true;
-                    gravity_Switch = false;
-                    jump = false;
-                }
-            }
-        }  
+            // Remove the touch condition from here
+        }
     }
 
-    private void Jump()
+    private void DetectTouches()
     {
-        Physics.gravity *= -1; // changing gravity
+        if (Input.GetKeyDown(KeyCode.Space) && is_Grounded && !jump)
+        {
+            Jump();
+        }
+        else
+        {
+
+        }
+    }
+
+        private void Jump()
+    {
+        // Reset vertical velocity before applying jump force
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+
+        // Apply jump force
+        //rb.AddForce(Vector2.up * jump_Force, ForceMode2D.Impulse);
+        //Physics2D.gravity *= -1;
+        rb.gravityScale *= 1;
         jump = true;
         gravity_Switch = true;
         gravity_Run = true;
-        if(jump == true)
-        {
-            transform.Rotate(0 , 0, -90);
-        }
     }
 }
