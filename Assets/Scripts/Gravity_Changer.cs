@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gravity_Changer : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private bool isSwitching;
+    [SerializeField] private bool is_Switching;
     [SerializeField] private bool is_Grounded;
     // Start is called before the first frame update
     void Start()
@@ -17,17 +17,35 @@ public class Gravity_Changer : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             is_Grounded = true;
-            isSwitching = false;
+            is_Switching = false;
+            if (is_Grounded)
+            {
+                is_Switching = false;
+            }
+            if (is_Switching)
+            {
+                is_Grounded = false;
+            }
         }
+        
     }
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        Switch_Gravity();
+    }
+
+    private void Switch_Gravity()
+    {
+        if (Input.touchCount > 0 && is_Grounded)
         {
+            is_Switching = true;
             is_Grounded = false;
-            isSwitching = true;
             rb.gravityScale *= -1;
+        }
+        else
+        {
+            is_Switching = false;
         }
     }
 }

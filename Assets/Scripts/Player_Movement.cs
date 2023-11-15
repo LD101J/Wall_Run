@@ -35,9 +35,6 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         Upward_Movement();
-
-        // Check for touches each frame
-        DetectTouches();
     }
 
     private void Upward_Movement()
@@ -50,30 +47,6 @@ public class Player_Movement : MonoBehaviour
             // Remove the touch condition from here
         }
     }
-
-    private void DetectTouches()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && is_Grounded && !jump)
-        {
-            Jump();
-        }
-        else
-        {
-
-        }
-    }
-
-        private void Jump()
-    {
-        // Reset vertical velocity before applying jump force
-        rb.velocity = new Vector2(rb.velocity.x, 0f);
-
-        // Apply jump force
-        //rb.AddForce(Vector2.up * jump_Force, ForceMode2D.Impulse);
-        //Physics2D.gravity *= -1;
-        rb.gravityScale *= 1;
-        jump = true;
-        gravity_Switch = true;
-        gravity_Run = true;
-    }
 }
+
+       
