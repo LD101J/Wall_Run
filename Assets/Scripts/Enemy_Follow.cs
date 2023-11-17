@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Enemy_Follow : MonoBehaviour
 {
+    [SerializeField] private bool is_Chasing;
     public GameObject player;
     public float speed = 10f;
     private float distance;
-
+    private Enemy_AI enemy_AI;
     private void Update()
+    {
+        Chase_Enemy();
+    }
+
+    private void Chase_Enemy()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
