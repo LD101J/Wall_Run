@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Gravity_UI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Slider slider;
+  
+    public void Set_Max_Health(int health)
     {
-        
+        slider.maxValue = health;
+        slider.value = health;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Set_Health(int health)
     {
-        
+        slider.value = health;
     }
 }
