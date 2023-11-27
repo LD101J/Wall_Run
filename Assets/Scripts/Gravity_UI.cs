@@ -1,18 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class Gravity_UI : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
-  
-    public void Set_Max_Health(int health)
+    //[SerializeField] private Slider slider;
+
+    [HideInInspector]
+    public Player character;
+    [SerializeField] Image meter_Image;
+    [SerializeField] Text hp_Text;
+    [SerializeField]float max_Hit_Points = 100f;
+    public float decrementValue = 0.01f; // You can change this value based on your needs
+    //[SerializeField] private Hit_Points hit_Points;
+
+    private void Start()
     {
-        slider.maxValue = health;
-        slider.value = health;
+        meter_Image.fillAmount = max_Hit_Points;
     }
-    public void Set_Health(int health)
+    private void Update()
     {
-        slider.value = health;
+        Gravity_Bar();
+    }
+
+    private void Gravity_Bar()
+    {
+        
+        meter_Image.fillAmount -= decrementValue;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
 }
