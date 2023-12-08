@@ -365,10 +365,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3094249047055944304, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3499854815244028355, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
       propertyPath: m_Name
       value: HealthBar_Object
@@ -457,55 +453,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3499854815320231692, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: m_FillAmount
-      value: 0.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499854815320231693, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 470
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499854815320231693, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499854815320231694, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698214844701293259, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: hp_Text
-      value: 
-      objectReference: {fileID: 3499854815930636868}
-    - target: {fileID: 4698214844701293259, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: meter_Image
-      value: 
-      objectReference: {fileID: 3499854815930636869}
-    - target: {fileID: 4698214844701293259, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-      propertyPath: decrementValue
-      value: 0.001
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
---- !u!114 &3499854815930636868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8397755633831551172, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-  m_PrefabInstance: {fileID: 3499854815930636867}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3499854815930636869 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3499854815320231692, guid: 60ed1655bbe789640982c98ff9a866ed, type: 3}
-  m_PrefabInstance: {fileID: 3499854815930636867}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

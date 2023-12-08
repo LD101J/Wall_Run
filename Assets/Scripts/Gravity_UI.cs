@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Gravity_UI : MonoBehaviour
 {
-    //[SerializeField] private Slider slider;
-
     [HideInInspector]
     public Player character;
     [SerializeField] Image meter_Image;
     [SerializeField] Text hp_Text;
+    [SerializeField] public GameObject pickup;
     [SerializeField]float max_Hit_Points = 100f;
     public float decrementValue = 0.01f; // You can change this value based on your needs
     //[SerializeField] private Hit_Points hit_Points;
