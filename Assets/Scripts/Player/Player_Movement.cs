@@ -13,6 +13,8 @@ public class Player_Movement : MonoBehaviour
     private bool gravity_Run;
     //gravity modifier
     private Rigidbody2D rb;
+    //gizmos
+    [SerializeField] private float player_Range = 5f;
     #endregion
 
     private void Start()
@@ -24,7 +26,8 @@ public class Player_Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        // Check if the collision is with a GameObject on the "ground" layer
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             is_Grounded = true;
             gravity_Switch = false;
@@ -47,6 +50,9 @@ public class Player_Movement : MonoBehaviour
             // Remove the touch condition from here
         }
     }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, player_Range);
+    //}
 }
-
-       

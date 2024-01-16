@@ -9,14 +9,21 @@ TagManager:
   - Shield
   - GravityMeter
   - Pickup
+  - Enemy
+  - Spike
+  - RightWall
+  - LeftWall
+  - Player_Radius
+  - Level_Generator
+  - Destroy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - SpawnPoints
   - 
   - 
   - 
