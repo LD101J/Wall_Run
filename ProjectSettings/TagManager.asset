@@ -16,6 +16,7 @@ TagManager:
   - Player_Radius
   - Level_Generator
   - Destroy
+  - Health_Pickup
   layers:
   - Default
   - TransparentFX

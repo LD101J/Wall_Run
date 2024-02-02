@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Add this line for SceneManager
 
 public class Gravity_UI_New : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Gravity_UI_New : MonoBehaviour
     [SerializeField] private float gravityDecrementRate;
     [SerializeField] private Image gravityUIImage;
     [SerializeField] private float spike;
+    [SerializeField] private float Health_Pickup;
 
     private void Start()
     {
@@ -36,6 +38,10 @@ public class Gravity_UI_New : MonoBehaviour
             float normalizedGravity = playerGravity / maxGravity;
             gravityUIImage.fillAmount = normalizedGravity;
         }
+        if (playerGravity == 0f)
+        {
+            RestartGame();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +50,22 @@ public class Gravity_UI_New : MonoBehaviour
         {
             playerGravity -= spike;
             UpdateUI(); // Call UpdateUI here to update the UI when gravity changes due to spike
+
+            if (playerGravity <= 0f)
+            {
+                RestartGame();
+            }
         }
+        if (other.CompareTag("Health_Pickup"))
+        {
+            playerGravity += Health_Pickup;
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void RestartGame()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene);
     }
 }
