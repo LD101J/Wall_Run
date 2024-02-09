@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6700672528975037818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6700672528975037819}
+  - component: {fileID: 6700672528975037820}
+  m_Layer: 0
+  m_Name: Level_Controler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6700672528975037819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700672528975037818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6700672528975037820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700672528975037818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3addb9afa77fd7342a411a5e5055bc53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level_Piece:
+  - name: Plain_Wall
+    prefab: {fileID: 5302245236258971663, guid: ccad9b7e1e31f8741a04d24fb49f2021, type: 3}
+    probability: 1
+  - name: Shiel_Wall
+    prefab: {fileID: 1050499058161097308, guid: e53536ad121fef249b2809b046d52570, type: 3}
+    probability: 5
+  - name: Cannon_Wall
+    prefab: {fileID: 0}
+    probability: 5
+  - name: Spike_Wall
+    prefab: {fileID: 3243181394342452759, guid: 409f0f905c2c3f047a8ed8dfb589a9b4, type: 3}
+    probability: 5
+  - name: Pickup
+    prefab: {fileID: 7455236439541802549, guid: da83f19658a699c4e88e922ec91a88d1, type: 3}
+    probability: 20
+  _camera: {fileID: 0}
+  draw_Distance: 35
+  generated_Piece: 6.47
+  camera_Speed: 3

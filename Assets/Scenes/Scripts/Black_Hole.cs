@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteAlways]
 public class CircularGravity : MonoBehaviour
 {
     [SerializeField] float massOfEarth;
     [SerializeField] Transform centerOfEarth;
-    [SerializeField] float G; //Gravity
+    [SerializeField] float G; // Gravity
 
     float massOfPlayer;
     float distance;
@@ -28,6 +28,12 @@ public class CircularGravity : MonoBehaviour
     void Update()
     {
         forceDirection = (centerOfEarth.position - transform.position).normalized;
-        rb.AddForce(forceValue * forceDirection); //We need value and direction of force
+        rb.AddForce(forceValue * forceDirection); // We need value and direction of force
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(centerOfEarth.position, distance);
     }
 }
